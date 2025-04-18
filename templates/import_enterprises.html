@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导入企业数据 - 食品安全智慧监管系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">导入企业数据</h3>
+                    </div>
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-info">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="file" class="form-label">选择Excel文件</label>
+                                <input type="file" class="form-control" id="file" name="file" accept=".xlsx" required>
+                            </div>
+                            <div class="mb-3">
+                                <p class="text-muted">Excel文件格式要求：</p>
+                                <ul>
+                                    <li>必须包含以下列：name, license_no, business_type, expire_date</li>
+                                    <li>日期格式：YYYY-MM-DD</li>
+                                    <li>经营类别：生产/流通/餐饮</li>
+                                </ul>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">导入数据</button>
+                                <a href="{{ url_for('index') }}" class="btn btn-secondary">返回首页</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
