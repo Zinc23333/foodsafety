@@ -67,8 +67,7 @@
                         <p class="card-text">注册和管理企业基本信息</p>
                         <a href="{{ url_for('register_enterprise') }}" class="btn btn-primary">企业注册</a>
                         {% if 'role' in session and session['role'] == 'admin' %}
-                            <a href="{{ url_for('import_enterprises') }}" class="btn btn-outline-primary">导入数据</a>
-                            <a href="{{ url_for('export_enterprises') }}" class="btn btn-outline-secondary">导出数据</a>
+                            <a href="{{ url_for('list_enterprises') }}" class="btn btn-outline-primary">查看企业</a>
                         {% endif %}
                     </div>
                 </div>
@@ -80,8 +79,7 @@
                         <p class="card-text">录入和管理产品批次信息</p>
                         <a href="{{ url_for('register_product') }}" class="btn btn-primary">产品注册</a>
                         {% if 'role' in session and session['role'] == 'admin' %}
-                            <a href="{{ url_for('import_products') }}" class="btn btn-outline-primary">导入数据</a>
-                            <a href="{{ url_for('export_products') }}" class="btn btn-outline-secondary">导出数据</a>
+                            <a href="{{ url_for('list_products') }}" class="btn btn-outline-primary">查看产品</a>
                         {% endif %}
                     </div>
                 </div>

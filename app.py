@@ -376,7 +376,9 @@ def dashboard():
                          enterprise_count=enterprise_count,
                          product_count=product_count,
                          inspection_count=inspection_count,
-                         expiring_products=expiring_products)
+                         expiring_products=expiring_products,
+                         datetime=datetime,
+                         timedelta=timedelta)
 
 # 登录路由
 @app.route('/login', methods=['GET', 'POST'])
